@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine kleine Vorstellungsseite</title>
+  <style>
+    :root {
+      --primary: #005a9c;
+      --background: #f3f7fa;
+      --text: #243746;
+      --surface: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header,
+    footer {
+      padding: 1.5rem;
+      background: var(--primary);
+      color: var(--surface);
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface);
+    }
+
+    nav a {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    main {
+      width: min(100% - 2rem, 960px);
+      margin: 2rem auto;
+    }
+
+    .kartenbereich {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .karte {
+      flex: 1;
+      margin: 0 0 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid #c8d8e3;
+      border-radius: 0.75rem;
+      background: var(--surface);
+    }
+
+    .seitenbild {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+      margin: 1rem 0;
+      border-radius: 0.75rem;
+      object-fit: cover;
+    }
+
+    button,
+    input {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #8daabd;
+      border-radius: 0.35rem;
+      font: inherit;
+    }
+
+    button {
+      background: var(--primary);
+      color: var(--surface);
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #f0b429;
+      outline-offset: 3px;
+    }
+
+    .versteckt {
+      display: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #f0b429;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 700px) {
+      .kartenbereich {
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meine kleine Vorstellungsseite</h1>
+    <p>Ein paar Dinge, die mich interessieren und meinen Alltag besonders machen.</p>
+  </header>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="#hobbys">Meine Hobbys</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <main>
+    <section class="karte" aria-labelledby="ueber-mich">
+      <h2 id="ueber-mich">Ein bisschen über mich</h2>
+      <p>
+        Ich verbringe meine freie Zeit gern mit Dingen, bei denen ich abschalten und
+        gleichzeitig etwas Neues entdecken kann. Besonders schön finde ich es, nach
+        einem langen Tag nach draußen zu gehen und frische Luft zu genießen. Dabei
+        kann ich meine Gedanken sortieren und neue Ideen sammeln. Zu Hause höre ich
+        oft Musik oder lese, wenn ich einen ruhigen Moment brauche. Ich probiere
+        außerdem gern neue Aktivitäten aus, denn so lerne ich mich selbst besser
+        kennen. Diese Seite ist ein kleiner Einblick in das, was mir Freude macht.
+      </p>
+      <img
+        class="seitenbild"
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+        alt="Ruhiger Bergsee vor einer grünen Berglandschaft"
+      >
+    </section>
+
+    <div class="kartenbereich">
+      <section id="hobbys" class="karte" aria-labelledby="hobbys-titel">
+        <h2 id="hobbys-titel">Meine Hobbys</h2>
+        <p>Diese Aktivitäten machen mir in meiner Freizeit besonders viel Spaß:</p>
+        <ul>
+          <li>Musik hören und neue Lieblingslieder entdecken</li>
+          <li>Mit dem Fahrrad unterwegs sein</li>
+          <li>Lesen und Neues lernen</li>
+        </ul>
+      </section>
+
+      <section id="kontakt" class="karte" aria-labelledby="kontakt-titel">
+        <h2 id="kontakt-titel">Kontakt</h2>
+        <p>
+          Ich freue mich immer, wenn ich mich mit anderen über gemeinsame
+          Interessen austauschen kann. Wenn du Hallo sagen oder mir eine Idee
+          für ein neues Hobby schicken möchtest, kannst du mir gern schreiben.
+        </p>
+        <p><a href="mailto:hallo@example.com">hallo@example.com</a></p>
+      </section>
+    </div>
+
+    <section class="karte" aria-labelledby="javascript-titel">
+      <h2 id="javascript-titel">Kleine JavaScript-Übungen</h2>
+
+      <h3>Klick-Reaktion</h3>
+      <button id="knopf" type="button">Sag Hallo</button>
+      <p id="ausgabe" aria-live="polite">Hier erscheint eine Nachricht.</p>
+
+      <h3>Zähler</h3>
+      <button id="zaehler-knopf" type="button">Zähler erhöhen</button>
+      <p id="zaehler-ausgabe" aria-live="polite">Der Zähler steht auf 0.</p>
+
+      <h3>Name eingeben</h3>
+      <label for="name">Dein Name:</label>
+      <input id="name" name="name" type="text">
+      <button id="name-knopf" type="button">Begrüßen</button>
+      <p id="name-ausgabe" aria-live="polite"></p>
+
+      <h3>Element ein- und ausblenden</h3>
+      <button id="toggle-knopf" type="button" aria-controls="zusatzinfo" aria-expanded="true">
+        Zusatzinfo ausblenden
+      </button>
+      <p id="zusatzinfo">JavaScript kann Inhalte auf einer Seite interaktiv verändern.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Meine kleine Vorstellungsseite</p>
+  </footer>
+
+  <script>
+    // Baustein 1: Klick-Reaktion
+    document.querySelector("#knopf").addEventListener("click", () => {
+      document.querySelector("#ausgabe").textContent = "Hallo! Schön, dass du da bist.";
+    });
+
+    // Baustein 2: Zähler
+    let zaehler = 0;
+    document.querySelector("#zaehler-knopf").addEventListener("click", () => {
+      zaehler += 1;
+      document.querySelector("#zaehler-ausgabe").textContent = `Der Zähler steht auf ${zaehler}.`;
+    });
+
+    // Baustein 3: Eingabe verarbeiten
+    document.querySelector("#name-knopf").addEventListener("click", () => {
+      const name = document.querySelector("#name").value.trim();
+      document.querySelector("#name-ausgabe").textContent = name
+        ? `Hallo, ${name}!`
+        : "Bitte gib zuerst deinen Namen ein.";
+    });
+
+    // Baustein 4: Element ein- und ausblenden
+    document.querySelector("#toggle-knopf").addEventListener("click", (ereignis) => {
+      const button = ereignis.currentTarget;
+      const versteckt = document.querySelector("#zusatzinfo").classList.toggle("versteckt");
+      button.textContent = versteckt ? "Zusatzinfo einblenden" : "Zusatzinfo ausblenden";
+      button.setAttribute("aria-expanded", String(!versteckt));
+    });
+  </script>
+</body>
+</html>
